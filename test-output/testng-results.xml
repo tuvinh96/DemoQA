@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-05-10T14:53:32 GMT+07:00" name="Default suite" finished-at="2026-05-10T14:53:37 GMT+07:00" duration-ms="4901">
+    <groups>
+    </groups>
+    <test started-at="2026-05-10T14:53:32 GMT+07:00" name="Default test" finished-at="2026-05-10T14:53:37 GMT+07:00" duration-ms="4901">
+      <class name="tests.PracticeFormTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.PracticeFormTest@3c46e67a]" started-at="2026-05-10T14:53:32 GMT+07:00" name="setUp" finished-at="2026-05-10T14:53:35 GMT+07:00" duration-ms="2934" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="submitDataSuccessfully()[pri:0, instance:tests.PracticeFormTest@3c46e67a]" started-at="2026-05-10T14:53:35 GMT+07:00" name="submitDataSuccessfully" finished-at="2026-05-10T14:53:37 GMT+07:00" duration-ms="1949" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitDataSuccessfully -->
+      </class> <!-- tests.PracticeFormTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
