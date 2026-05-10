@@ -5,8 +5,8 @@
     <classes>
       <class name="tests.PracticeFormTest">
         <methods>
+          <include name="submitDataSuccessfully_DataProvider" invocation-numbers="0"/>
           <include name="setUp"/>
-          <include name="submitDataSuccessfully"/>
         </methods>
       </class> <!-- tests.PracticeFormTest -->
     </classes>
