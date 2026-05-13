@@ -1,7 +1,13 @@
 package tests;
 
+import static org.junit.Assert.assertTrue;
 import static org.testng.Assert.assertEquals;
 
+import java.sql.Driver;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -13,10 +19,9 @@ import pages.ThanksForSubmittingPage;
 public class PracticeFormTest extends TestCase {
 	@Test(dataProvider = "PracticeForm_TC01")
 	public void submitDataSuccessfully_DataProvider(String firstName, String lastName, String email, String gender,
-			String mobileNumber, String dateOfBirth,
-			String subject, String hobbies, String picture, String currentAddress,
-			String state, String city) {
-		String picturePath = System.getProperty("user.dir") + "\\testcase\\TestData\\"+ picture;
+			String mobileNumber, String dateOfBirth, String subject, String hobbies, String picture,
+			String currentAddress, String state, String city) {
+		String picturePath = System.getProperty("user.dir") + "\\testcase\\TestData\\" + picture;
 //		String firstName = "Vinh";
 //		String lastName = "Tu";
 //		String email = "vinhqt170796@gmail.com";
@@ -39,6 +44,8 @@ public class PracticeFormTest extends TestCase {
 
 		ThanksForSubmittingPage thanksForSubmittingPage = practiceFormPage.inputData(firstName, lastName, email, gender,
 				mobileNumber, dateOfBirth, subject, hobbies, picturePath, currentAddress, state, city);
+		practiceFormPage.submitForm();
+
 		String actualStudentName = thanksForSubmittingPage.getActualText("Student Name");
 		String expectedStudentName = firstName + " " + lastName;
 		assertEquals(actualStudentName, expectedStudentName);
@@ -74,5 +81,19 @@ public class PracticeFormTest extends TestCase {
 		Utils utils = new Utils();
 		data = utils.readDataFromCSV("PracticeForm_TC01.csv");
 		return data;
+	}
+	@Test
+	public void TC02() throws InterruptedException {
+		PracticeFormPage practiceFormPage = new PracticeFormPage(testBase.webDriver);
+		testBase.webDriver.navigate().to("https://demoqa.com/automation-practice-form");
+		practiceFormPage.submitForm();
+//		//Fail case
+//		Thread.sleep(100);
+//		Fail case
+		Thread.sleep(200);
+		WebElement txtFirstNameBorder = testBase.webDriver.findElement(By.id("firstName"));
+		String firstNameBorder = txtFirstNameBorder.getCssValue("border-top-color");
+		System.out.println(firstNameBorder);
+		Assert.assertTrue(firstNameBorder.contains("220, 53, 69"));
 	}
 }
