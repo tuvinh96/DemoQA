@@ -6,7 +6,7 @@
       <class name="tests.PracticeFormTest">
         <methods>
           <include name="setUp"/>
-          <include name="submitDataSuccessfully"/>
+          <include name="TC02"/>
         </methods>
       </class> <!-- tests.PracticeFormTest -->
     </classes>

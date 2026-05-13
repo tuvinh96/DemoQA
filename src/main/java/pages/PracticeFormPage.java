@@ -1,7 +1,12 @@
 package pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PracticeFormPage extends Page {
 	public By txtFirstName = By.id("firstName");
@@ -27,9 +32,9 @@ public class PracticeFormPage extends Page {
 
 	}
 
-	public ThanksForSubmittingPage inputData(String firstName, String lastName, String email, String gender, String mobileNumber,
-			String dateOfBirth, String subject, String hobbies, String picture, String currentAddress, String state,
-			String city) {
+	public ThanksForSubmittingPage inputData(String firstName, String lastName, String email, String gender,
+			String mobileNumber, String dateOfBirth, String subject, String hobbies, String picture,
+			String currentAddress, String state, String city) {
 		base.inputText(txtFirstName, firstName);
 		base.inputText(txtLastName, lastName);
 		base.inputText(txtEmail, email);
@@ -42,8 +47,14 @@ public class PracticeFormPage extends Page {
 		base.inputText(txtCurrentAddress, currentAddress);
 		base.fillComboBox(cbState, state);
 		base.fillComboBox(cbCity, city);
-		base.clickOnElement(btnSubmit);
+//		base.clickOnElement(btnSubmit);
 		return new ThanksForSubmittingPage(driver);
+	}
+
+	public void submitForm() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(5000));
+		base.clickOnElement(btnSubmit);
+		wait.until(ExpectedConditions.attributeContains(By.id("userForm"), "class", "was-validated"));
 	}
 
 	public void selectDateOfBirth(String dateOfBirth) {
