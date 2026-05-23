@@ -1,5 +1,6 @@
 package common;
 
+import java.time.Duration;
 import java.util.Iterator;
 
 import org.openqa.selenium.By;
@@ -10,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestBase {
 	public WebDriver webDriver;
@@ -26,6 +28,7 @@ public class TestBase {
 		}
 		webDriver.get(url);
 		webDriver.manage().window().maximize();
+		webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	}
 
 	public void inputText(By locator, CharSequence... inputText) {
@@ -107,5 +110,13 @@ public class TestBase {
 
 	public String getTextByLocator(By locator) {
 		return webDriver.findElement(locator).getText();
+	}
+	
+	public void goToPage(String url) {
+		webDriver.navigate().to(url);
+	}
+	
+	public void waitForElement(By locator, int timeBySecond) {
+//		WebDriverWait
 	}
 }

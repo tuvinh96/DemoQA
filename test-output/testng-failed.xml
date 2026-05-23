@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.CheckBoxTest">
+      <class name="tests.WebTableTest">
         <methods>
-          <include name="verifyCheckBoxCorrectly"/>
           <include name="setUp"/>
+          <include name="searchByDepartment" invocation-numbers="0"/>
         </methods>
-      </class> <!-- tests.CheckBoxTest -->
+      </class> <!-- tests.WebTableTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import tests.models.StudentRegistration;
+
 public class PracticeFormPage extends Page {
 	public By txtFirstName = By.id("firstName");
 	public By txtLastName = By.id("lastName");
@@ -32,7 +34,23 @@ public class PracticeFormPage extends Page {
 
 	}
 
-	public ThanksForSubmittingPage inputData(String firstName, String lastName, String email, String gender,
+	/**
+	 * Using dataprovider directly => not use
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 * @param gender
+	 * @param mobileNumber
+	 * @param dateOfBirth
+	 * @param subject
+	 * @param hobbies
+	 * @param picture
+	 * @param currentAddress
+	 * @param state
+	 * @param city
+	 * @return
+	 */
+	public ThanksForSubmittingPage inputData_1(String firstName, String lastName, String email, String gender,
 			String mobileNumber, String dateOfBirth, String subject, String hobbies, String picture,
 			String currentAddress, String state, String city) {
 		base.inputText(txtFirstName, firstName);
@@ -47,6 +65,24 @@ public class PracticeFormPage extends Page {
 		base.inputText(txtCurrentAddress, currentAddress);
 		base.fillComboBox(cbState, state);
 		base.fillComboBox(cbCity, city);
+//		base.clickOnElement(btnSubmit);
+		return new ThanksForSubmittingPage(driver);
+	}
+	
+	public ThanksForSubmittingPage inputData(StudentRegistration studentRegistration) {
+		base.inputText(txtFirstName, studentRegistration.firstName);
+		base.inputText(txtLastName, studentRegistration.lastName);
+		base.inputText(txtEmail, studentRegistration.email);
+		base.selectRadioButton(rdGender, studentRegistration.gender);
+		base.inputText(txtMobile, studentRegistration.mobileNumber);
+		selectDateOfBirth(studentRegistration.dateOfBirth);
+		base.fillComboBox(cbSubject, studentRegistration.subject);
+		base.selectCheckBox(chkHobbies, studentRegistration.hobbies);
+		String picturePath = System.getProperty("user.dir") + "\\testcase\\TestData\\" + studentRegistration.picture;
+		base.inputText(txtPicture, picturePath);
+		base.inputText(txtCurrentAddress, studentRegistration.currentAddress);
+		base.fillComboBox(cbState, studentRegistration.state);
+		base.fillComboBox(cbCity, studentRegistration.city);
 //		base.clickOnElement(btnSubmit);
 		return new ThanksForSubmittingPage(driver);
 	}
