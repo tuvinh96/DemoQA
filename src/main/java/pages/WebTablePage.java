@@ -53,36 +53,38 @@ public class WebTablePage extends Page{
 		base.inputText(txtSearchBox, Keys.ENTER);
 	}
 	
-	public void getSearchResult(String searchText, String columnName) {
+	public String getSearchResult(String searchText, String columnName) {
+		String result = "";
 		switch (columnName) {
 		case "firstName": {
-			base.getTextByLocator(lbFirstName);
+			result = base.getTextByLocator(lbFirstName);
 			break;
 		}
 		case "lastName": {
-			base.getTextByLocator(lbLastName);
+			result = base.getTextByLocator(lbLastName);
 			break;
 		}
 		case "age": {
-			base.getTextByLocator(lbAge);
+			result = base.getTextByLocator(lbAge);
 			break;
 		}
 		case "email": {
-			base.getTextByLocator(lbEmail);
+			result = base.getTextByLocator(lbEmail);
 			break;
 		}
 		case "salary": {
-			base.getTextByLocator(lbSalary);
+			result = base.getTextByLocator(lbSalary);
 			break;
 		}
 		case "department": {
-			base.getTextByLocator(lbDepartment);
+			result = base.getTextByLocator(lbDepartment);
 			break;
 		}
 		default:
 			System.out.println("No column to search");
 			break;
 		}
+	return result;
 	}
 
 }

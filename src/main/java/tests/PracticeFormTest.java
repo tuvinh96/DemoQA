@@ -118,7 +118,7 @@ public class PracticeFormTest extends TestCase {
 		practiceFormPage.submitForm();
 //		//Fail case
 //		Thread.sleep(100);
-//		Fail case
+//		pass case
 		try {
 			Thread.sleep(200);
 		} catch (InterruptedException e) {

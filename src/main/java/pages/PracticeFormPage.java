@@ -88,9 +88,9 @@ public class PracticeFormPage extends Page {
 	}
 
 	public void submitForm() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(5000));
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		base.clickOnElement(btnSubmit);
-		wait.until(ExpectedConditions.attributeContains(By.id("userForm"), "class", "was-validated"));
+//		wait.until(ExpectedConditions.attributeContains(By.id("userForm"), "class", "was-validated"));
 	}
 
 	public void selectDateOfBirth(String dateOfBirth) {
